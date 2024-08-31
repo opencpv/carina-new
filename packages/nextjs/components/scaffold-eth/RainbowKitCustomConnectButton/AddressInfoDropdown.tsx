@@ -1,23 +1,25 @@
 import { useRef, useState } from "react";
-import { NetworkOptions } from "./NetworkOptions";
-import CopyToClipboard from "react-copy-to-clipboard";
+// import { NetworkOptions } from "./NetworkOptions";
+// import CopyToClipboard from "react-copy-to-clipboard";
 import { getAddress } from "viem";
 import { Address } from "viem";
 import { useDisconnect } from "wagmi";
-import {
-  ArrowLeftOnRectangleIcon,
-  ArrowTopRightOnSquareIcon,
-  ArrowsRightLeftIcon,
-  CheckCircleIcon,
-  ChevronDownIcon,
-  DocumentDuplicateIcon,
-  QrCodeIcon,
-} from "@heroicons/react/24/outline";
+// import {
+//   ArrowLeftOnRectangleIcon,
+//   ArrowTopRightOnSquareIcon,
+//   ArrowsRightLeftIcon,
+//   CheckCircleIcon,
+//   ChevronDownIcon,
+//   DocumentDuplicateIcon,
+//   QrCodeIcon,
+// } from "@heroicons/react/24/outline";
+import { AiOutlineLogout }from 'react-icons/ai'
 import { BlockieAvatar, isENS } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
-import { getTargetNetworks } from "~~/utils/scaffold-eth";
 
-const allowedNetworks = getTargetNetworks();
+// import { getTargetNetworks } from "~~/utils/scaffold-eth";
+
+// const allowedNetworks = getTargetNetworks();
 
 type AddressInfoDropdownProps = {
   address: Address;
@@ -30,14 +32,14 @@ export const AddressInfoDropdown = ({
   address,
   ensAvatar,
   displayName,
-  blockExplorerAddressLink,
-}: AddressInfoDropdownProps) => {
+}: // blockExplorerAddressLink,
+AddressInfoDropdownProps) => {
   const { disconnect } = useDisconnect();
   const checkSumAddress = getAddress(address);
 
-  const [addressCopied, setAddressCopied] = useState(false);
+  // const [addressCopied, setAddressCopied] = useState(false);
 
-  const [selectingNetwork, setSelectingNetwork] = useState(false);
+  const [, setSelectingNetwork] = useState(false);
   const dropdownRef = useRef<HTMLDetailsElement>(null);
   const closeDropdown = () => {
     setSelectingNetwork(false);
@@ -46,16 +48,19 @@ export const AddressInfoDropdown = ({
   useOutsideClick(dropdownRef, closeDropdown);
 
   return (
-    <>
-      <details ref={dropdownRef} className="dropdown dropdown-end leading-3">
-        <summary tabIndex={0} className="btn btn-secondary btn-sm pl-0 pr-2 shadow-md dropdown-toggle gap-0 !h-auto">
-          <BlockieAvatar address={checkSumAddress} size={30} ensImage={ensAvatar} />
+    <div className="flex items-center gap-3">
+      <details ref={dropdownRef} className="dropdown dropdown-end leading-3 flex flex-grow ">
+        <summary
+          tabIndex={0}
+        className="flex gap-2 px-3 items-center bg-carina-light text-lg text-white  h-[50px]  rounded-2xl font-bold"
+        >
+          <BlockieAvatar address={checkSumAddress} size={30} ensImage={ensAvatar}  />
           <span className="ml-2 mr-1">
-            {isENS(displayName) ? displayName : checkSumAddress?.slice(0, 6) + "..." + checkSumAddress?.slice(-4)}
+            {isENS(displayName) ? displayName : checkSumAddress?.slice(0, 10) + "..." + checkSumAddress?.slice(-10)}
           </span>
-          <ChevronDownIcon className="h-6 w-4 ml-2 sm:ml-0" />
+          {/* <ChevronDownIcon className="h-6 w-4 ml-2 sm:ml-0" /> */}
         </summary>
-        <ul
+        {/* <ul
           tabIndex={0}
           className="dropdown-content menu z-[2] p-2 mt-2 shadow-center shadow-accent bg-base-200 rounded-box gap-1"
         >
@@ -130,8 +135,9 @@ export const AddressInfoDropdown = ({
               <ArrowLeftOnRectangleIcon className="h-6 w-4 ml-2 sm:ml-0" /> <span>Disconnect</span>
             </button>
           </li>
-        </ul>
+        </ul> */}
       </details>
-    </>
+      <button className="w-[50px] h-[50px] aspect-square rounded-2xl flex items-center justify-center bg-red-500 text-white" onClick={() => disconnect()}><AiOutlineLogout/></button>
+    </div>
   );
 };

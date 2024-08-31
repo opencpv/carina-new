@@ -50,5 +50,15 @@
   "packageManager": "yarn@3.2.3",
   "engines": {
     "node": ">=18.17.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.3",
+    "classnames": "^2.5.1",
+    "dayjs": "^1.11.13",
+    "lottie-react": "^2.4.0",
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^5.3.0",
+    "reactjs-popup": "^2.0.6",
+    "yup": "^1.4.0"
   }
 }

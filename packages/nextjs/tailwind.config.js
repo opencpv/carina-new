@@ -9,9 +9,9 @@ module.exports = {
     themes: [
       {
         light: {
-          primary: "#93BBFB",
+          primary: "#07463D",
           "primary-content": "#212638",
-          secondary: "#DAE8FF",
+          secondary: "#4FD1C5",
           "secondary-content": "#212638",
           accent: "#93BBFB",
           "accent-content": "#212638",
@@ -81,6 +81,14 @@ module.exports = {
       },
       animation: {
         "pulse-fast": "pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      },
+      backgroundImage: {
+        "landing-bg": "url('/imgs/bg.png')",
+      },
+      colors: {
+        carina: "#E1FFFA",
+        "carina-light": "#4FD1C5",
+        "carina-deep-light": "#B6F2EA",
       },
     },
   },
