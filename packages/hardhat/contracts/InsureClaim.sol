@@ -43,7 +43,7 @@ contract InsureClaim {
         string memory _description,
         uint256 _claimAmount,
         address _insurerAddress
-    ) external {
+    ) external returns(uint id) {
         require(_claimAmount > 0, "Claim amount must be greater than zero");
 
         claims[nextClaimId] = Claim({
@@ -61,6 +61,8 @@ contract InsureClaim {
 
         emit ClaimSubmitted(nextClaimId, msg.sender);
         nextClaimId++;
+
+        return nextClaimId - 1;
     }
 
     function approveClaim(uint256 _claimId) external onlyInsurer onlySubmitted(_claimId) {

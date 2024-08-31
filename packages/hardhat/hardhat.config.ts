@@ -118,6 +118,11 @@ const config: HardhatUserConfig = {
       url: "https://sepolia.publicgoods.network",
       accounts: [deployerPrivateKey],
     },
+    "lisk-sepolia": {
+      url: "https://rpc.sepolia-api.lisk.com",
+      accounts: [deployerPrivateKey],
+      gasPrice: 1000000000,
+    },
   },
   // configuration for harhdat-verify plugin
   etherscan: {
