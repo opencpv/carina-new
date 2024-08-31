@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/InsureClaim.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ncontract InsureClaim {\n    struct Claim {\n        uint256 id;\n        address payable claimant;\n        string policyName;\n        address insurerAddress;\n        string description;\n        uint256 claimAmount;\n        bool submitted;\n        bool isApproved;\n        bool isPaid;\n        string rejectionReason;\n    }\n\n    uint256 public nextClaimId;\n    mapping(uint256 => Claim) public claims;\n    address public insurer;\n\n    event ClaimSubmitted(uint256 claimId, address claimant);\n    event ClaimApproved(uint256 claimId);\n    event ClaimRejected(uint256 claimId, string reason);\n    event ClaimPaid(uint256 claimId, uint256 amount);\n\n    modifier onlyInsurer() {\n        require(msg.sender == insurer, \"Only insurer can perform this action\");\n        _;\n    }\n\n    modifier onlySubmitted(uint256 claimId) {\n        require(claims[claimId].submitted, \"Claim must be submitted\");\n        _;\n    }\n\n    constructor() {\n        insurer = msg.sender;\n    }\n\n    function submitClaim(\n        string memory _policyName,\n        string memory _description,\n        uint256 _claimAmount,\n        address _insurerAddress\n    ) external returns(uint id) {\n        require(_claimAmount > 0, \"Claim amount must be greater than zero\");\n\n        claims[nextClaimId] = Claim({\n            id: nextClaimId,\n            claimant: payable(msg.sender),\n            policyName: _policyName,\n            description: _description,\n            claimAmount: _claimAmount,\n            insurerAddress:_insurerAddress,\n            submitted: true,\n            isApproved: false,\n            isPaid: false,\n            rejectionReason: \"\"\n        });\n\n        emit ClaimSubmitted(nextClaimId, msg.sender);\n        nextClaimId++;\n\n        return nextClaimId - 1;\n    }\n\n    function approveClaim(uint256 _claimId) external onlyInsurer onlySubmitted(_claimId) {\n        Claim storage claim = claims[_claimId];\n        require(!claim.isApproved, \"Claim already approved\");\n        require(!claim.isPaid, \"Claim already paid\");\n\n        claim.isApproved = true;\n\n        emit ClaimApproved(_claimId);\n    }\n\n    function rejectClaim(uint256 _claimId, string memory _reason) external onlyInsurer onlySubmitted(_claimId) {\n        Claim storage claim = claims[_claimId];\n        require(!claim.isApproved, \"Claim already approved\");\n        require(!claim.isPaid, \"Claim already paid\");\n\n        claim.isApproved = false;\n        claim.rejectionReason = _reason;\n\n        emit ClaimRejected(_claimId, _reason);\n    }\n\n    function payClaim(uint256 _claimId) external onlyInsurer onlySubmitted(_claimId) {\n        Claim storage claim = claims[_claimId];\n        require(claim.isApproved, \"Claim not approved\");\n        require(!claim.isPaid, \"Claim already paid\");\n\n        claim.isPaid = true;\n        claim.claimant.transfer(claim.claimAmount);\n\n        emit ClaimPaid(_claimId, claim.claimAmount);\n    }\n\n    function getClaim(uint256 _claimId)\n        external\n        view\n        returns (\n            uint256 id,\n            address claimant,\n            string memory policyName,\n            string memory description,\n            uint256 claimAmount,\n            bool submitted,\n            bool isApproved,\n            bool isPaid,\n            string memory rejectionReason\n        )\n    {\n        Claim storage claim = claims[_claimId];\n        return (\n            claim.id,\n            claim.claimant,\n            claim.policyName,\n            claim.description,\n            claim.claimAmount,\n            claim.submitted,\n            claim.isApproved,\n            claim.isPaid,\n            claim.rejectionReason\n        );\n    }\n\n    function withdrawFunds() external onlyInsurer {\n        payable(insurer).transfer(address(this).balance);\n    }\n\n    // Function to deposit funds into the contract for payment purposes\n    function depositFunds() external payable {}\n\n    receive() external payable {}\n}"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

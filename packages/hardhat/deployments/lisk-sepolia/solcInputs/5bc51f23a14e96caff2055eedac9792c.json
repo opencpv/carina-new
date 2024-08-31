@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/Carina.sol": {
+      "content": "// SPDX-License-Identifier: SEE LICENSE IN LICENSE\npragma solidity >=0.8.0 <0.9;\n\ncontract Carina {\n    uint private claimEnumerator;\n\n    struct Patient {\n        string fullname;\n        string email;\n        address payable wallet;\n    }\n\n    struct Insurer {\n        address wallet;\n        string name;\n    }\n\n    struct HealthProvider {\n        address wallet;\n        string name;\n        string email;\n    }\n\n    struct Claim {\n        uint id;\n        Patient patient;\n        HealthProvider provider;\n        ClaimStatus status;\n        uint256 cost;\n    }\n\n    enum ClaimStatus {\n        Pending,\n        Approved,\n        Rejected,\n        Settled\n    }\n\n    mapping(address => Patient) private patients;\n    mapping(address => HealthProvider) private providers;\n    mapping(uint => Claim) public claims;\n    mapping(address => Insurer) public insurers;\n\n    event ClaimCreated(uint claimId, uint256 cost);\n    event ClaimStatusUpdated(uint claimId, ClaimStatus status);\n    event ClaimSettled(uint claimId);\n\n    constructor() {\n        claimEnumerator = 0;\n    }\n\nfunction submitClaim(string memory fullname, string memory email, address payable walletAddress, uint256 cost) public {\n    require(stringNotEmpty(providers[msg.sender].email), \"Health provider email must not be empty\");\n\n    Patient memory patient;\n    if (patients[walletAddress].wallet == address(0)) {\n        patient = Patient({\n            fullname: fullname,\n            email: email,\n            wallet: walletAddress\n        });\n\n        patients[patient.wallet] = patient;\n    } else {\n        patient = patients[walletAddress];\n    }\n\n    HealthProvider storage provider = providers[msg.sender];\n\n    claimEnumerator++;\n\n    Claim storage claim = claims[claimEnumerator];\n    claim.id = claimEnumerator;\n    claim.patient = patient;\n    claim.provider = provider;\n    claim.status = ClaimStatus.Pending;\n    claim.cost = cost;\n\n    emit ClaimCreated(claim.id, claim.cost);\n}\n\n    function approveClaim(uint claimId) public {\n        require(stringNotEmpty(insurers[msg.sender].name), \"Caller must be a registered insurer\");\n\n        updateClaimStatus(claimId, ClaimStatus.Approved);\n        emit ClaimStatusUpdated(claimId, ClaimStatus.Approved);\n    }\n\n    function rejectClaim(uint claimId) public {\n        require(stringNotEmpty(insurers[msg.sender].name), \"Caller must be a registered insurer\");\n\n        updateClaimStatus(claimId, ClaimStatus.Rejected);\n        emit ClaimStatusUpdated(claimId, ClaimStatus.Rejected);\n    }\n\n    function settleClaim(uint claimId) public payable returns (bool) {\n        require(stringNotEmpty(insurers[msg.sender].name), \"Caller must be a registered insurer\");\n    \n        Claim storage claim = claims[claimId];\n        require(claim.status == ClaimStatus.Approved, \"Only approved claims can be settled\");\n\n        require(msg.sender.balance >= claim.cost, \"Not enough funds to settle claim\");\n    \n        claim.patient.wallet.transfer(claim.cost);\n    \n        updateClaimStatus(claimId, ClaimStatus.Settled);\n        emit ClaimSettled(claimId);\n        emit ClaimStatusUpdated(claimId, ClaimStatus.Settled);\n    \n        return true;\n    }\n\n    function getClaim(uint claimId) public view returns (Claim memory) {\n        return claims[claimId];\n    }\n\n    function createInsurer(string memory name, address insurerAddress) public returns (Insurer memory) {\n        require(stringNotEmpty(name), \"Insurer name must not be empty\");\n    \n        if (stringNotEmpty(insurers[insurerAddress].name)) {\n            return insurers[insurerAddress];\n        }\n    \n        Insurer storage insurer = insurers[insurerAddress];\n        insurer.wallet = insurerAddress;\n        insurer.name = name;\n    \n        return insurer;\n    }\n\n    function createProvider(string memory name, string memory email, address providerAddress) public returns (HealthProvider memory) {\n        if (stringNotEmpty(providers[providerAddress].email)) {\n            return providers[providerAddress];\n        }\n    \n        HealthProvider storage provider = providers[providerAddress];\n        provider.wallet = providerAddress;\n        provider.name = name;\n        provider.email = email;\n    \n        return provider;\n    }\n\n    function stringsEqual(string memory a, string memory b) internal pure returns (bool) {\n        return keccak256(abi.encodePacked(a)) == keccak256(abi.encodePacked(b));\n    }\n\n    function stringNotEmpty(string memory a) internal pure returns (bool) {\n        return !stringsEqual(a, '');\n    }\n\n    function updateClaimStatus(uint claimId, ClaimStatus status) private {\n        if(stringNotEmpty(claims[claimId].patient.email)){\n            claims[claimId].status = status;\n        }\n    }\n}"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

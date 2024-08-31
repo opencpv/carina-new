@@ -5,6 +5,871 @@
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
 const deployedContracts = {
+  4202: {
+    Carina: {
+      address: "0xD50df7B2A2B2A9c5FaA74dA9211f18836CF09f6f",
+      abi: [
+        {
+          inputs: [],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "claimId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "cost",
+              type: "uint256",
+            },
+          ],
+          name: "ClaimCreated",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "claimId",
+              type: "uint256",
+            },
+          ],
+          name: "ClaimSettled",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "claimId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "enum Carina.ClaimStatus",
+              name: "status",
+              type: "uint8",
+            },
+          ],
+          name: "ClaimStatusUpdated",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "claimId",
+              type: "uint256",
+            },
+          ],
+          name: "approveClaim",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "claims",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "id",
+              type: "uint256",
+            },
+            {
+              components: [
+                {
+                  internalType: "string",
+                  name: "fullname",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "email",
+                  type: "string",
+                },
+                {
+                  internalType: "address payable",
+                  name: "wallet",
+                  type: "address",
+                },
+              ],
+              internalType: "struct Carina.Patient",
+              name: "patient",
+              type: "tuple",
+            },
+            {
+              components: [
+                {
+                  internalType: "address",
+                  name: "wallet",
+                  type: "address",
+                },
+                {
+                  internalType: "string",
+                  name: "name",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "email",
+                  type: "string",
+                },
+              ],
+              internalType: "struct Carina.HealthProvider",
+              name: "provider",
+              type: "tuple",
+            },
+            {
+              internalType: "enum Carina.ClaimStatus",
+              name: "status",
+              type: "uint8",
+            },
+            {
+              internalType: "uint256",
+              name: "cost",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+            {
+              internalType: "address",
+              name: "insurerAddress",
+              type: "address",
+            },
+          ],
+          name: "createInsurer",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "address",
+                  name: "wallet",
+                  type: "address",
+                },
+                {
+                  internalType: "string",
+                  name: "name",
+                  type: "string",
+                },
+              ],
+              internalType: "struct Carina.Insurer",
+              name: "",
+              type: "tuple",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "email",
+              type: "string",
+            },
+            {
+              internalType: "address",
+              name: "providerAddress",
+              type: "address",
+            },
+          ],
+          name: "createProvider",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "address",
+                  name: "wallet",
+                  type: "address",
+                },
+                {
+                  internalType: "string",
+                  name: "name",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "email",
+                  type: "string",
+                },
+              ],
+              internalType: "struct Carina.HealthProvider",
+              name: "",
+              type: "tuple",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "claimId",
+              type: "uint256",
+            },
+          ],
+          name: "getClaim",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "id",
+                  type: "uint256",
+                },
+                {
+                  components: [
+                    {
+                      internalType: "string",
+                      name: "fullname",
+                      type: "string",
+                    },
+                    {
+                      internalType: "string",
+                      name: "email",
+                      type: "string",
+                    },
+                    {
+                      internalType: "address payable",
+                      name: "wallet",
+                      type: "address",
+                    },
+                  ],
+                  internalType: "struct Carina.Patient",
+                  name: "patient",
+                  type: "tuple",
+                },
+                {
+                  components: [
+                    {
+                      internalType: "address",
+                      name: "wallet",
+                      type: "address",
+                    },
+                    {
+                      internalType: "string",
+                      name: "name",
+                      type: "string",
+                    },
+                    {
+                      internalType: "string",
+                      name: "email",
+                      type: "string",
+                    },
+                  ],
+                  internalType: "struct Carina.HealthProvider",
+                  name: "provider",
+                  type: "tuple",
+                },
+                {
+                  internalType: "enum Carina.ClaimStatus",
+                  name: "status",
+                  type: "uint8",
+                },
+                {
+                  internalType: "uint256",
+                  name: "cost",
+                  type: "uint256",
+                },
+              ],
+              internalType: "struct Carina.Claim",
+              name: "",
+              type: "tuple",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "insurers",
+          outputs: [
+            {
+              internalType: "address",
+              name: "wallet",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "claimId",
+              type: "uint256",
+            },
+          ],
+          name: "rejectClaim",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "claimId",
+              type: "uint256",
+            },
+          ],
+          name: "settleClaim",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "fullname",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "email",
+              type: "string",
+            },
+            {
+              internalType: "address payable",
+              name: "walletAddress",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "cost",
+              type: "uint256",
+            },
+          ],
+          name: "submitClaim",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    InsureClaim: {
+      address: "0x89e4b1D67E698832f5dFB40e3f3219514317C823",
+      abi: [
+        {
+          inputs: [],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "claimId",
+              type: "uint256",
+            },
+          ],
+          name: "ClaimApproved",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "claimId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+          ],
+          name: "ClaimPaid",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "claimId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "reason",
+              type: "string",
+            },
+          ],
+          name: "ClaimRejected",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "claimId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "claimant",
+              type: "address",
+            },
+          ],
+          name: "ClaimSubmitted",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "_claimId",
+              type: "uint256",
+            },
+          ],
+          name: "approveClaim",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "claims",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "id",
+              type: "uint256",
+            },
+            {
+              internalType: "address payable",
+              name: "claimant",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "policyName",
+              type: "string",
+            },
+            {
+              internalType: "address",
+              name: "insurerAddress",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "description",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "claimAmount",
+              type: "uint256",
+            },
+            {
+              internalType: "bool",
+              name: "submitted",
+              type: "bool",
+            },
+            {
+              internalType: "bool",
+              name: "isApproved",
+              type: "bool",
+            },
+            {
+              internalType: "bool",
+              name: "isPaid",
+              type: "bool",
+            },
+            {
+              internalType: "string",
+              name: "rejectionReason",
+              type: "string",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "depositFunds",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "_claimId",
+              type: "uint256",
+            },
+          ],
+          name: "getClaim",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "id",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "claimant",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "policyName",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "description",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "claimAmount",
+              type: "uint256",
+            },
+            {
+              internalType: "bool",
+              name: "submitted",
+              type: "bool",
+            },
+            {
+              internalType: "bool",
+              name: "isApproved",
+              type: "bool",
+            },
+            {
+              internalType: "bool",
+              name: "isPaid",
+              type: "bool",
+            },
+            {
+              internalType: "string",
+              name: "rejectionReason",
+              type: "string",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "insurer",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "nextClaimId",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "_claimId",
+              type: "uint256",
+            },
+          ],
+          name: "payClaim",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "_claimId",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "_reason",
+              type: "string",
+            },
+          ],
+          name: "rejectClaim",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "_policyName",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "_description",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "_claimAmount",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "_insurerAddress",
+              type: "address",
+            },
+          ],
+          name: "submitClaim",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "id",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "withdrawFunds",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          stateMutability: "payable",
+          type: "receive",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    YourContract: {
+      address: "0xEba94F362a13533BED01AAD5E58A22294EAA183A",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_owner",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "greetingSetter",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "newGreeting",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "bool",
+              name: "premium",
+              type: "bool",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "value",
+              type: "uint256",
+            },
+          ],
+          name: "GreetingChange",
+          type: "event",
+        },
+        {
+          inputs: [],
+          name: "greeting",
+          outputs: [
+            {
+              internalType: "string",
+              name: "",
+              type: "string",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "owner",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "premium",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "_newGreeting",
+              type: "string",
+            },
+          ],
+          name: "setGreeting",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "totalCounter",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "userGreetingCounter",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "withdraw",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          stateMutability: "payable",
+          type: "receive",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+  },
   31337: {
     Carina: {
       address: "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",

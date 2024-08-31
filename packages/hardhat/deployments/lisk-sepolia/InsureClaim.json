@@ -1,0 +1,506 @@
+{
+  "address": "0x89e4b1D67E698832f5dFB40e3f3219514317C823",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "claimId",
+          "type": "uint256"
+        }
+      ],
+      "name": "ClaimApproved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "claimId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "ClaimPaid",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "claimId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "reason",
+          "type": "string"
+        }
+      ],
+      "name": "ClaimRejected",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "claimId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "claimant",
+          "type": "address"
+        }
+      ],
+      "name": "ClaimSubmitted",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_claimId",
+          "type": "uint256"
+        }
+      ],
+      "name": "approveClaim",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "claims",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address payable",
+          "name": "claimant",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "policyName",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "insurerAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "claimAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "submitted",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "isApproved",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "isPaid",
+          "type": "bool"
+        },
+        {
+          "internalType": "string",
+          "name": "rejectionReason",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "depositFunds",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_claimId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getClaim",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "claimant",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "policyName",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "claimAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "submitted",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "isApproved",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "isPaid",
+          "type": "bool"
+        },
+        {
+          "internalType": "string",
+          "name": "rejectionReason",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "insurer",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nextClaimId",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_claimId",
+          "type": "uint256"
+        }
+      ],
+      "name": "payClaim",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_claimId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "_reason",
+          "type": "string"
+        }
+      ],
+      "name": "rejectClaim",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_policyName",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_description",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_claimAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_insurerAddress",
+          "type": "address"
+        }
+      ],
+      "name": "submitClaim",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withdrawFunds",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "transactionHash": "0x098419ca6ae74277a7b23aad4b82fb028e0259ec1f9a68c1e37905db704e7769",
+  "receipt": {
+    "to": null,
+    "from": "0xB446eA730Ec5b3B4699d916FdF1a705B4e302456",
+    "contractAddress": "0x89e4b1D67E698832f5dFB40e3f3219514317C823",
+    "transactionIndex": 1,
+    "gasUsed": "1077805",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xf30e94ee641dc5899b70ad1df8ccc76149449dce3aa1b35d0ea513dd9fb951c5",
+    "transactionHash": "0x098419ca6ae74277a7b23aad4b82fb028e0259ec1f9a68c1e37905db704e7769",
+    "logs": [],
+    "blockNumber": 9893948,
+    "cumulativeGasUsed": "1132868",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "b7f50ae49077fdcd0b8565d74b1b6649",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"claimId\",\"type\":\"uint256\"}],\"name\":\"ClaimApproved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"claimId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"ClaimPaid\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"claimId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"}],\"name\":\"ClaimRejected\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"claimId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"claimant\",\"type\":\"address\"}],\"name\":\"ClaimSubmitted\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_claimId\",\"type\":\"uint256\"}],\"name\":\"approveClaim\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"claims\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"address payable\",\"name\":\"claimant\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"policyName\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"insurerAddress\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"claimAmount\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"submitted\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"isApproved\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"isPaid\",\"type\":\"bool\"},{\"internalType\":\"string\",\"name\":\"rejectionReason\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"depositFunds\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_claimId\",\"type\":\"uint256\"}],\"name\":\"getClaim\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"claimant\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"policyName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"claimAmount\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"submitted\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"isApproved\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"isPaid\",\"type\":\"bool\"},{\"internalType\":\"string\",\"name\":\"rejectionReason\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"insurer\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nextClaimId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_claimId\",\"type\":\"uint256\"}],\"name\":\"payClaim\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_claimId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_reason\",\"type\":\"string\"}],\"name\":\"rejectClaim\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_policyName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_description\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_claimAmount\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_insurerAddress\",\"type\":\"address\"}],\"name\":\"submitClaim\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdrawFunds\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/InsureClaim.sol\":\"InsureClaim\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/InsureClaim.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\ncontract InsureClaim {\\n    struct Claim {\\n        uint256 id;\\n        address payable claimant;\\n        string policyName;\\n        address insurerAddress;\\n        string description;\\n        uint256 claimAmount;\\n        bool submitted;\\n        bool isApproved;\\n        bool isPaid;\\n        string rejectionReason;\\n    }\\n\\n    uint256 public nextClaimId;\\n    mapping(uint256 => Claim) public claims;\\n    address public insurer;\\n\\n    event ClaimSubmitted(uint256 claimId, address claimant);\\n    event ClaimApproved(uint256 claimId);\\n    event ClaimRejected(uint256 claimId, string reason);\\n    event ClaimPaid(uint256 claimId, uint256 amount);\\n\\n    modifier onlyInsurer() {\\n        require(msg.sender == insurer, \\\"Only insurer can perform this action\\\");\\n        _;\\n    }\\n\\n    modifier onlySubmitted(uint256 claimId) {\\n        require(claims[claimId].submitted, \\\"Claim must be submitted\\\");\\n        _;\\n    }\\n\\n    constructor() {\\n        insurer = msg.sender;\\n    }\\n\\n    function submitClaim(\\n        string memory _policyName,\\n        string memory _description,\\n        uint256 _claimAmount,\\n        address _insurerAddress\\n    ) external returns(uint id) {\\n        require(_claimAmount > 0, \\\"Claim amount must be greater than zero\\\");\\n\\n        claims[nextClaimId] = Claim({\\n            id: nextClaimId,\\n            claimant: payable(msg.sender),\\n            policyName: _policyName,\\n            description: _description,\\n            claimAmount: _claimAmount,\\n            insurerAddress:_insurerAddress,\\n            submitted: true,\\n            isApproved: false,\\n            isPaid: false,\\n            rejectionReason: \\\"\\\"\\n        });\\n\\n        emit ClaimSubmitted(nextClaimId, msg.sender);\\n        nextClaimId++;\\n\\n        return nextClaimId - 1;\\n    }\\n\\n    function approveClaim(uint256 _claimId) external onlyInsurer onlySubmitted(_claimId) {\\n        Claim storage claim = claims[_claimId];\\n        require(!claim.isApproved, \\\"Claim already approved\\\");\\n        require(!claim.isPaid, \\\"Claim already paid\\\");\\n\\n        claim.isApproved = true;\\n\\n        emit ClaimApproved(_claimId);\\n    }\\n\\n    function rejectClaim(uint256 _claimId, string memory _reason) external onlyInsurer onlySubmitted(_claimId) {\\n        Claim storage claim = claims[_claimId];\\n        require(!claim.isApproved, \\\"Claim already approved\\\");\\n        require(!claim.isPaid, \\\"Claim already paid\\\");\\n\\n        claim.isApproved = false;\\n        claim.rejectionReason = _reason;\\n\\n        emit ClaimRejected(_claimId, _reason);\\n    }\\n\\n    function payClaim(uint256 _claimId) external onlyInsurer onlySubmitted(_claimId) {\\n        Claim storage claim = claims[_claimId];\\n        require(claim.isApproved, \\\"Claim not approved\\\");\\n        require(!claim.isPaid, \\\"Claim already paid\\\");\\n\\n        claim.isPaid = true;\\n        claim.claimant.transfer(claim.claimAmount);\\n\\n        emit ClaimPaid(_claimId, claim.claimAmount);\\n    }\\n\\n    function getClaim(uint256 _claimId)\\n        external\\n        view\\n        returns (\\n            uint256 id,\\n            address claimant,\\n            string memory policyName,\\n            string memory description,\\n            uint256 claimAmount,\\n            bool submitted,\\n            bool isApproved,\\n            bool isPaid,\\n            string memory rejectionReason\\n        )\\n    {\\n        Claim storage claim = claims[_claimId];\\n        return (\\n            claim.id,\\n            claim.claimant,\\n            claim.policyName,\\n            claim.description,\\n            claim.claimAmount,\\n            claim.submitted,\\n            claim.isApproved,\\n            claim.isPaid,\\n            claim.rejectionReason\\n        );\\n    }\\n\\n    function withdrawFunds() external onlyInsurer {\\n        payable(insurer).transfer(address(this).balance);\\n    }\\n\\n    // Function to deposit funds into the contract for payment purposes\\n    function depositFunds() external payable {}\\n\\n    receive() external payable {}\\n}\",\"keccak256\":\"0xf3c23d86dec96d2f4a8762fc22d4fdb53014f5a8bd85e115fde18c98dc031a08\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50600280546001600160a01b03191633179055611221806100326000396000f3fe6080604052600436106100955760003560e01c8063a0021cf111610059578063a0021cf114610160578063a888c2cd14610176578063d70356cc146101ac578063dbc837c5146101cc578063e2c41dbc146100e957600080fd5b80630a850e33146100a157806324600fc3146100d45780633577a5ad146100eb57806346e301351461010b5780635aef24471461012b57600080fd5b3661009c57005b600080fd5b3480156100ad57600080fd5b506100c16100bc366004610d51565b610204565b6040519081526020015b60405180910390f35b3480156100e057600080fd5b506100e961041f565b005b3480156100f757600080fd5b506100e9610106366004610ddd565b610485565b34801561011757600080fd5b506100e9610126366004610e24565b6105c9565b34801561013757600080fd5b5061014b610146366004610e24565b610702565b6040516100cb99989796959493929190610e83565b34801561016c57600080fd5b506100c160005481565b34801561018257600080fd5b50610196610191366004610e24565b61092d565b6040516100cb9a99989796959493929190610f05565b3480156101b857600080fd5b506100e96101c7366004610e24565b610b3a565b3480156101d857600080fd5b506002546101ec906001600160a01b031681565b6040516001600160a01b0390911681526020016100cb565b60008083116102695760405162461bcd60e51b815260206004820152602660248201527f436c61696d20616d6f756e74206d7573742062652067726561746572207468616044820152656e207a65726f60d01b60648201526084015b60405180910390fd5b6040805161014081018252600080548083523360208085019182528486018b81526001600160a01b038981166060880152608087018c905260a087018b9052600160c0880181905260e08801879052610100880187905288518085018a52878152610120890152948652918490529590932084518155905191810180546001600160a01b03191692909316919091179091559151909190600282019061030f908261101b565b5060608201516003820180546001600160a01b0319166001600160a01b039092169190911790556080820151600482019061034a908261101b565b5060a0820151600582015560c082015160068201805460e08501516101008087015161ffff1990931694151561ff001916949094179015159093029290921762ff00001916620100009215159290920291909117905561012082015160078201906103b5908261101b565b5050600054604080519182523360208301527f4dfa1d399fc3d748dfe023239c274bdaa380853d97eec367121715b4659d7fdb92500160405180910390a1600080549080610402836110f1565b91905055506001600054610416919061110a565b95945050505050565b6002546001600160a01b031633146104495760405162461bcd60e51b815260040161026090611123565b6002546040516001600160a01b03909116904780156108fc02916000818181858888f19350505050158015610482573d6000803e3d6000fd5b50565b6002546001600160a01b031633146104af5760405162461bcd60e51b815260040161026090611123565b600082815260016020526040902060060154829060ff166104e25760405162461bcd60e51b815260040161026090611167565b60008381526001602052604090206006810154610100900460ff16156105435760405162461bcd60e51b815260206004820152601660248201527510db185a5b48185b1c9958591e48185c1c1c9bdd995960521b6044820152606401610260565b600681015462010000900460ff161561056e5760405162461bcd60e51b81526004016102609061119e565b60068101805461ff001916905560078101610589848261101b565b507f43cc3d080e025c67c26d62b18bd442511dc9c76c8aa3f48cc0e8f456173e61f184846040516105bb9291906111ca565b60405180910390a150505050565b6002546001600160a01b031633146105f35760405162461bcd60e51b815260040161026090611123565b600081815260016020526040902060060154819060ff166106265760405162461bcd60e51b815260040161026090611167565b60008281526001602052604090206006810154610100900460ff16156106875760405162461bcd60e51b815260206004820152601660248201527510db185a5b48185b1c9958591e48185c1c1c9bdd995960521b6044820152606401610260565b600681015462010000900460ff16156106b25760405162461bcd60e51b81526004016102609061119e565b60068101805461ff0019166101001790556040517fd2d0ed0cccc8615643ade1eff3929a29ed8df75ebca85a3996e311c9b69e2289906106f59085815260200190565b60405180910390a1505050565b60008181526001602081905260408220805491810154600582015460068301546002840180548796606096879689968796879687968b96946001600160a01b031693919260048701929160ff808316926101008104821692620100009091049091169060078a0190879061077590610f92565b80601f01602080910402602001604051908101604052809291908181526020018280546107a190610f92565b80156107ee5780601f106107c3576101008083540402835291602001916107ee565b820191906000526020600020905b8154815290600101906020018083116107d157829003601f168201915b5050505050965085805461080190610f92565b80601f016020809104026020016040519081016040528092919081815260200182805461082d90610f92565b801561087a5780601f1061084f5761010080835404028352916020019161087a565b820191906000526020600020905b81548152906001019060200180831161085d57829003601f168201915b5050505050955080805461088d90610f92565b80601f01602080910402602001604051908101604052809291908181526020018280546108b990610f92565b80156109065780601f106108db57610100808354040283529160200191610906565b820191906000526020600020905b8154815290600101906020018083116108e957829003601f168201915b50505050509050995099509950995099509950995099509950509193959799909294969850565b60016020819052600091825260409091208054918101546002820180546001600160a01b03909216929161096090610f92565b80601f016020809104026020016040519081016040528092919081815260200182805461098c90610f92565b80156109d95780601f106109ae576101008083540402835291602001916109d9565b820191906000526020600020905b8154815290600101906020018083116109bc57829003601f168201915b505050600384015460048501805494956001600160a01b03909216949193509150610a0390610f92565b80601f0160208091040260200160405190810160405280929190818152602001828054610a2f90610f92565b8015610a7c5780601f10610a5157610100808354040283529160200191610a7c565b820191906000526020600020905b815481529060010190602001808311610a5f57829003601f168201915b50505050600583015460068401546007850180549495929460ff808416955061010084048116946201000090940416929190610ab790610f92565b80601f0160208091040260200160405190810160405280929190818152602001828054610ae390610f92565b8015610b305780601f10610b0557610100808354040283529160200191610b30565b820191906000526020600020905b815481529060010190602001808311610b1357829003601f168201915b505050505090508a565b6002546001600160a01b03163314610b645760405162461bcd60e51b815260040161026090611123565b600081815260016020526040902060060154819060ff16610b975760405162461bcd60e51b815260040161026090611167565b60008281526001602052604090206006810154610100900460ff16610bf35760405162461bcd60e51b815260206004820152601260248201527110db185a5b481b9bdd08185c1c1c9bdd995960721b6044820152606401610260565b600681015462010000900460ff1615610c1e5760405162461bcd60e51b81526004016102609061119e565b60068101805462ff0000191662010000179055600181015460058201546040516001600160a01b039092169181156108fc0291906000818181858888f19350505050158015610c71573d6000803e3d6000fd5b5060058101546040805185815260208101929092527fb0727183796e52c5bb00a257c1eb36d8e94dbee5d6d87e259287e3372ae39ace91016106f5565b634e487b7160e01b600052604160045260246000fd5b600082601f830112610cd557600080fd5b813567ffffffffffffffff80821115610cf057610cf0610cae565b604051601f8301601f19908116603f01168101908282118183101715610d1857610d18610cae565b81604052838152866020858801011115610d3157600080fd5b836020870160208301376000602085830101528094505050505092915050565b60008060008060808587031215610d6757600080fd5b843567ffffffffffffffff80821115610d7f57600080fd5b610d8b88838901610cc4565b95506020870135915080821115610da157600080fd5b50610dae87828801610cc4565b9350506040850135915060608501356001600160a01b0381168114610dd257600080fd5b939692955090935050565b60008060408385031215610df057600080fd5b82359150602083013567ffffffffffffffff811115610e0e57600080fd5b610e1a85828601610cc4565b9150509250929050565b600060208284031215610e3657600080fd5b5035919050565b6000815180845260005b81811015610e6357602081850181015186830182015201610e47565b506000602082860101526020601f19601f83011685010191505092915050565b8981526001600160a01b038916602082015261012060408201819052600090610eae8382018b610e3d565b90508281036060840152610ec2818a610e3d565b905087608084015286151560a084015285151560c084015284151560e0840152828103610100840152610ef58185610e3d565b9c9b505050505050505050505050565b8a81526001600160a01b038a8116602083015261014060408301819052600091610f318483018d610e3d565b908b16606085015283810360808501529050610f4d818a610e3d565b90508760a084015286151560c084015285151560e0840152841515610100840152828103610120840152610f818185610e3d565b9d9c50505050505050505050505050565b600181811c90821680610fa657607f821691505b602082108103610fc657634e487b7160e01b600052602260045260246000fd5b50919050565b601f82111561101657600081815260208120601f850160051c81016020861015610ff35750805b601f850160051c820191505b8181101561101257828155600101610fff565b5050505b505050565b815167ffffffffffffffff81111561103557611035610cae565b611049816110438454610f92565b84610fcc565b602080601f83116001811461107e57600084156110665750858301515b600019600386901b1c1916600185901b178555611012565b600085815260208120601f198616915b828110156110ad5788860151825594840194600190910190840161108e565b50858210156110cb5787850151600019600388901b60f8161c191681555b5050505050600190811b01905550565b634e487b7160e01b600052601160045260246000fd5b600060018201611103576111036110db565b5060010190565b8181038181111561111d5761111d6110db565b92915050565b60208082526024908201527f4f6e6c7920696e73757265722063616e20706572666f726d20746869732061636040820152633a34b7b760e11b606082015260800190565b60208082526017908201527f436c61696d206d757374206265207375626d6974746564000000000000000000604082015260600190565b60208082526012908201527110db185a5b48185b1c9958591e481c185a5960721b604082015260600190565b8281526040602082015260006111e36040830184610e3d565b94935050505056fea2646970667358221220d73e37e587c5987fde4f0e7d348f8f9f4064ea5af861c10195816c8a3ceaeec164736f6c63430008110033",
+  "deployedBytecode": "0x6080604052600436106100955760003560e01c8063a0021cf111610059578063a0021cf114610160578063a888c2cd14610176578063d70356cc146101ac578063dbc837c5146101cc578063e2c41dbc146100e957600080fd5b80630a850e33146100a157806324600fc3146100d45780633577a5ad146100eb57806346e301351461010b5780635aef24471461012b57600080fd5b3661009c57005b600080fd5b3480156100ad57600080fd5b506100c16100bc366004610d51565b610204565b6040519081526020015b60405180910390f35b3480156100e057600080fd5b506100e961041f565b005b3480156100f757600080fd5b506100e9610106366004610ddd565b610485565b34801561011757600080fd5b506100e9610126366004610e24565b6105c9565b34801561013757600080fd5b5061014b610146366004610e24565b610702565b6040516100cb99989796959493929190610e83565b34801561016c57600080fd5b506100c160005481565b34801561018257600080fd5b50610196610191366004610e24565b61092d565b6040516100cb9a99989796959493929190610f05565b3480156101b857600080fd5b506100e96101c7366004610e24565b610b3a565b3480156101d857600080fd5b506002546101ec906001600160a01b031681565b6040516001600160a01b0390911681526020016100cb565b60008083116102695760405162461bcd60e51b815260206004820152602660248201527f436c61696d20616d6f756e74206d7573742062652067726561746572207468616044820152656e207a65726f60d01b60648201526084015b60405180910390fd5b6040805161014081018252600080548083523360208085019182528486018b81526001600160a01b038981166060880152608087018c905260a087018b9052600160c0880181905260e08801879052610100880187905288518085018a52878152610120890152948652918490529590932084518155905191810180546001600160a01b03191692909316919091179091559151909190600282019061030f908261101b565b5060608201516003820180546001600160a01b0319166001600160a01b039092169190911790556080820151600482019061034a908261101b565b5060a0820151600582015560c082015160068201805460e08501516101008087015161ffff1990931694151561ff001916949094179015159093029290921762ff00001916620100009215159290920291909117905561012082015160078201906103b5908261101b565b5050600054604080519182523360208301527f4dfa1d399fc3d748dfe023239c274bdaa380853d97eec367121715b4659d7fdb92500160405180910390a1600080549080610402836110f1565b91905055506001600054610416919061110a565b95945050505050565b6002546001600160a01b031633146104495760405162461bcd60e51b815260040161026090611123565b6002546040516001600160a01b03909116904780156108fc02916000818181858888f19350505050158015610482573d6000803e3d6000fd5b50565b6002546001600160a01b031633146104af5760405162461bcd60e51b815260040161026090611123565b600082815260016020526040902060060154829060ff166104e25760405162461bcd60e51b815260040161026090611167565b60008381526001602052604090206006810154610100900460ff16156105435760405162461bcd60e51b815260206004820152601660248201527510db185a5b48185b1c9958591e48185c1c1c9bdd995960521b6044820152606401610260565b600681015462010000900460ff161561056e5760405162461bcd60e51b81526004016102609061119e565b60068101805461ff001916905560078101610589848261101b565b507f43cc3d080e025c67c26d62b18bd442511dc9c76c8aa3f48cc0e8f456173e61f184846040516105bb9291906111ca565b60405180910390a150505050565b6002546001600160a01b031633146105f35760405162461bcd60e51b815260040161026090611123565b600081815260016020526040902060060154819060ff166106265760405162461bcd60e51b815260040161026090611167565b60008281526001602052604090206006810154610100900460ff16156106875760405162461bcd60e51b815260206004820152601660248201527510db185a5b48185b1c9958591e48185c1c1c9bdd995960521b6044820152606401610260565b600681015462010000900460ff16156106b25760405162461bcd60e51b81526004016102609061119e565b60068101805461ff0019166101001790556040517fd2d0ed0cccc8615643ade1eff3929a29ed8df75ebca85a3996e311c9b69e2289906106f59085815260200190565b60405180910390a1505050565b60008181526001602081905260408220805491810154600582015460068301546002840180548796606096879689968796879687968b96946001600160a01b031693919260048701929160ff808316926101008104821692620100009091049091169060078a0190879061077590610f92565b80601f01602080910402602001604051908101604052809291908181526020018280546107a190610f92565b80156107ee5780601f106107c3576101008083540402835291602001916107ee565b820191906000526020600020905b8154815290600101906020018083116107d157829003601f168201915b5050505050965085805461080190610f92565b80601f016020809104026020016040519081016040528092919081815260200182805461082d90610f92565b801561087a5780601f1061084f5761010080835404028352916020019161087a565b820191906000526020600020905b81548152906001019060200180831161085d57829003601f168201915b5050505050955080805461088d90610f92565b80601f01602080910402602001604051908101604052809291908181526020018280546108b990610f92565b80156109065780601f106108db57610100808354040283529160200191610906565b820191906000526020600020905b8154815290600101906020018083116108e957829003601f168201915b50505050509050995099509950995099509950995099509950509193959799909294969850565b60016020819052600091825260409091208054918101546002820180546001600160a01b03909216929161096090610f92565b80601f016020809104026020016040519081016040528092919081815260200182805461098c90610f92565b80156109d95780601f106109ae576101008083540402835291602001916109d9565b820191906000526020600020905b8154815290600101906020018083116109bc57829003601f168201915b505050600384015460048501805494956001600160a01b03909216949193509150610a0390610f92565b80601f0160208091040260200160405190810160405280929190818152602001828054610a2f90610f92565b8015610a7c5780601f10610a5157610100808354040283529160200191610a7c565b820191906000526020600020905b815481529060010190602001808311610a5f57829003601f168201915b50505050600583015460068401546007850180549495929460ff808416955061010084048116946201000090940416929190610ab790610f92565b80601f0160208091040260200160405190810160405280929190818152602001828054610ae390610f92565b8015610b305780601f10610b0557610100808354040283529160200191610b30565b820191906000526020600020905b815481529060010190602001808311610b1357829003601f168201915b505050505090508a565b6002546001600160a01b03163314610b645760405162461bcd60e51b815260040161026090611123565b600081815260016020526040902060060154819060ff16610b975760405162461bcd60e51b815260040161026090611167565b60008281526001602052604090206006810154610100900460ff16610bf35760405162461bcd60e51b815260206004820152601260248201527110db185a5b481b9bdd08185c1c1c9bdd995960721b6044820152606401610260565b600681015462010000900460ff1615610c1e5760405162461bcd60e51b81526004016102609061119e565b60068101805462ff0000191662010000179055600181015460058201546040516001600160a01b039092169181156108fc0291906000818181858888f19350505050158015610c71573d6000803e3d6000fd5b5060058101546040805185815260208101929092527fb0727183796e52c5bb00a257c1eb36d8e94dbee5d6d87e259287e3372ae39ace91016106f5565b634e487b7160e01b600052604160045260246000fd5b600082601f830112610cd557600080fd5b813567ffffffffffffffff80821115610cf057610cf0610cae565b604051601f8301601f19908116603f01168101908282118183101715610d1857610d18610cae565b81604052838152866020858801011115610d3157600080fd5b836020870160208301376000602085830101528094505050505092915050565b60008060008060808587031215610d6757600080fd5b843567ffffffffffffffff80821115610d7f57600080fd5b610d8b88838901610cc4565b95506020870135915080821115610da157600080fd5b50610dae87828801610cc4565b9350506040850135915060608501356001600160a01b0381168114610dd257600080fd5b939692955090935050565b60008060408385031215610df057600080fd5b82359150602083013567ffffffffffffffff811115610e0e57600080fd5b610e1a85828601610cc4565b9150509250929050565b600060208284031215610e3657600080fd5b5035919050565b6000815180845260005b81811015610e6357602081850181015186830182015201610e47565b506000602082860101526020601f19601f83011685010191505092915050565b8981526001600160a01b038916602082015261012060408201819052600090610eae8382018b610e3d565b90508281036060840152610ec2818a610e3d565b905087608084015286151560a084015285151560c084015284151560e0840152828103610100840152610ef58185610e3d565b9c9b505050505050505050505050565b8a81526001600160a01b038a8116602083015261014060408301819052600091610f318483018d610e3d565b908b16606085015283810360808501529050610f4d818a610e3d565b90508760a084015286151560c084015285151560e0840152841515610100840152828103610120840152610f818185610e3d565b9d9c50505050505050505050505050565b600181811c90821680610fa657607f821691505b602082108103610fc657634e487b7160e01b600052602260045260246000fd5b50919050565b601f82111561101657600081815260208120601f850160051c81016020861015610ff35750805b601f850160051c820191505b8181101561101257828155600101610fff565b5050505b505050565b815167ffffffffffffffff81111561103557611035610cae565b611049816110438454610f92565b84610fcc565b602080601f83116001811461107e57600084156110665750858301515b600019600386901b1c1916600185901b178555611012565b600085815260208120601f198616915b828110156110ad5788860151825594840194600190910190840161108e565b50858210156110cb5787850151600019600388901b60f8161c191681555b5050505050600190811b01905550565b634e487b7160e01b600052601160045260246000fd5b600060018201611103576111036110db565b5060010190565b8181038181111561111d5761111d6110db565b92915050565b60208082526024908201527f4f6e6c7920696e73757265722063616e20706572666f726d20746869732061636040820152633a34b7b760e11b606082015260800190565b60208082526017908201527f436c61696d206d757374206265207375626d6974746564000000000000000000604082015260600190565b60208082526012908201527110db185a5b48185b1c9958591e481c185a5960721b604082015260600190565b8281526040602082015260006111e36040830184610e3d565b94935050505056fea2646970667358221220d73e37e587c5987fde4f0e7d348f8f9f4064ea5af861c10195816c8a3ceaeec164736f6c63430008110033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 24,
+        "contract": "contracts/InsureClaim.sol:InsureClaim",
+        "label": "nextClaimId",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 29,
+        "contract": "contracts/InsureClaim.sol:InsureClaim",
+        "label": "claims",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_uint256,t_struct(Claim)22_storage)"
+      },
+      {
+        "astId": 31,
+        "contract": "contracts/InsureClaim.sol:InsureClaim",
+        "label": "insurer",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_address"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_address_payable": {
+        "encoding": "inplace",
+        "label": "address payable",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_uint256,t_struct(Claim)22_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct InsureClaim.Claim)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Claim)22_storage"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(Claim)22_storage": {
+        "encoding": "inplace",
+        "label": "struct InsureClaim.Claim",
+        "members": [
+          {
+            "astId": 3,
+            "contract": "contracts/InsureClaim.sol:InsureClaim",
+            "label": "id",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 5,
+            "contract": "contracts/InsureClaim.sol:InsureClaim",
+            "label": "claimant",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_address_payable"
+          },
+          {
+            "astId": 7,
+            "contract": "contracts/InsureClaim.sol:InsureClaim",
+            "label": "policyName",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 9,
+            "contract": "contracts/InsureClaim.sol:InsureClaim",
+            "label": "insurerAddress",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_address"
+          },
+          {
+            "astId": 11,
+            "contract": "contracts/InsureClaim.sol:InsureClaim",
+            "label": "description",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 13,
+            "contract": "contracts/InsureClaim.sol:InsureClaim",
+            "label": "claimAmount",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 15,
+            "contract": "contracts/InsureClaim.sol:InsureClaim",
+            "label": "submitted",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_bool"
+          },
+          {
+            "astId": 17,
+            "contract": "contracts/InsureClaim.sol:InsureClaim",
+            "label": "isApproved",
+            "offset": 1,
+            "slot": "6",
+            "type": "t_bool"
+          },
+          {
+            "astId": 19,
+            "contract": "contracts/InsureClaim.sol:InsureClaim",
+            "label": "isPaid",
+            "offset": 2,
+            "slot": "6",
+            "type": "t_bool"
+          },
+          {
+            "astId": 21,
+            "contract": "contracts/InsureClaim.sol:InsureClaim",
+            "label": "rejectionReason",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_string_storage"
+          }
+        ],
+        "numberOfBytes": "256"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

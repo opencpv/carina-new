@@ -1,0 +1,656 @@
+{
+  "address": "0xD50df7B2A2B2A9c5FaA74dA9211f18836CF09f6f",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "claimId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "cost",
+          "type": "uint256"
+        }
+      ],
+      "name": "ClaimCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "claimId",
+          "type": "uint256"
+        }
+      ],
+      "name": "ClaimSettled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "claimId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "enum Carina.ClaimStatus",
+          "name": "status",
+          "type": "uint8"
+        }
+      ],
+      "name": "ClaimStatusUpdated",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "claimId",
+          "type": "uint256"
+        }
+      ],
+      "name": "approveClaim",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "claims",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "fullname",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "email",
+              "type": "string"
+            },
+            {
+              "internalType": "address payable",
+              "name": "wallet",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct Carina.Patient",
+          "name": "patient",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "wallet",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "email",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct Carina.HealthProvider",
+          "name": "provider",
+          "type": "tuple"
+        },
+        {
+          "internalType": "enum Carina.ClaimStatus",
+          "name": "status",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint256",
+          "name": "cost",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "insurerAddress",
+          "type": "address"
+        }
+      ],
+      "name": "createInsurer",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "wallet",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct Carina.Insurer",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "providerAddress",
+          "type": "address"
+        }
+      ],
+      "name": "createProvider",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "wallet",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "email",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct Carina.HealthProvider",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "claimId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getClaim",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "string",
+                  "name": "fullname",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "email",
+                  "type": "string"
+                },
+                {
+                  "internalType": "address payable",
+                  "name": "wallet",
+                  "type": "address"
+                }
+              ],
+              "internalType": "struct Carina.Patient",
+              "name": "patient",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "wallet",
+                  "type": "address"
+                },
+                {
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "email",
+                  "type": "string"
+                }
+              ],
+              "internalType": "struct Carina.HealthProvider",
+              "name": "provider",
+              "type": "tuple"
+            },
+            {
+              "internalType": "enum Carina.ClaimStatus",
+              "name": "status",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint256",
+              "name": "cost",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct Carina.Claim",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "insurers",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "wallet",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "claimId",
+          "type": "uint256"
+        }
+      ],
+      "name": "rejectClaim",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "claimId",
+          "type": "uint256"
+        }
+      ],
+      "name": "settleClaim",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "fullname",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "internalType": "address payable",
+          "name": "walletAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "cost",
+          "type": "uint256"
+        }
+      ],
+      "name": "submitClaim",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x2d425890343e09937a441f93de4e2c916c5478398360ebae19f9e30ece56c2b6",
+  "receipt": {
+    "to": null,
+    "from": "0xB446eA730Ec5b3B4699d916FdF1a705B4e302456",
+    "contractAddress": "0xD50df7B2A2B2A9c5FaA74dA9211f18836CF09f6f",
+    "transactionIndex": 1,
+    "gasUsed": "1711431",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xb6d80037afdbf427d25affb7b81202699bb5e82821f970fad567e90049dd86fa",
+    "transactionHash": "0x2d425890343e09937a441f93de4e2c916c5478398360ebae19f9e30ece56c2b6",
+    "logs": [],
+    "blockNumber": 9893956,
+    "cumulativeGasUsed": "1755306",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "5bc51f23a14e96caff2055eedac9792c",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"claimId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"cost\",\"type\":\"uint256\"}],\"name\":\"ClaimCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"claimId\",\"type\":\"uint256\"}],\"name\":\"ClaimSettled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"claimId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"enum Carina.ClaimStatus\",\"name\":\"status\",\"type\":\"uint8\"}],\"name\":\"ClaimStatusUpdated\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"claimId\",\"type\":\"uint256\"}],\"name\":\"approveClaim\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"claims\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"fullname\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"},{\"internalType\":\"address payable\",\"name\":\"wallet\",\"type\":\"address\"}],\"internalType\":\"struct Carina.Patient\",\"name\":\"patient\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"}],\"internalType\":\"struct Carina.HealthProvider\",\"name\":\"provider\",\"type\":\"tuple\"},{\"internalType\":\"enum Carina.ClaimStatus\",\"name\":\"status\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"cost\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"insurerAddress\",\"type\":\"address\"}],\"name\":\"createInsurer\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"internalType\":\"struct Carina.Insurer\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"providerAddress\",\"type\":\"address\"}],\"name\":\"createProvider\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"}],\"internalType\":\"struct Carina.HealthProvider\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"claimId\",\"type\":\"uint256\"}],\"name\":\"getClaim\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"fullname\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"},{\"internalType\":\"address payable\",\"name\":\"wallet\",\"type\":\"address\"}],\"internalType\":\"struct Carina.Patient\",\"name\":\"patient\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"}],\"internalType\":\"struct Carina.HealthProvider\",\"name\":\"provider\",\"type\":\"tuple\"},{\"internalType\":\"enum Carina.ClaimStatus\",\"name\":\"status\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"cost\",\"type\":\"uint256\"}],\"internalType\":\"struct Carina.Claim\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"insurers\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"claimId\",\"type\":\"uint256\"}],\"name\":\"rejectClaim\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"claimId\",\"type\":\"uint256\"}],\"name\":\"settleClaim\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"fullname\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"},{\"internalType\":\"address payable\",\"name\":\"walletAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"cost\",\"type\":\"uint256\"}],\"name\":\"submitClaim\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Carina.sol\":\"Carina\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Carina.sol\":{\"content\":\"// SPDX-License-Identifier: SEE LICENSE IN LICENSE\\npragma solidity >=0.8.0 <0.9;\\n\\ncontract Carina {\\n    uint private claimEnumerator;\\n\\n    struct Patient {\\n        string fullname;\\n        string email;\\n        address payable wallet;\\n    }\\n\\n    struct Insurer {\\n        address wallet;\\n        string name;\\n    }\\n\\n    struct HealthProvider {\\n        address wallet;\\n        string name;\\n        string email;\\n    }\\n\\n    struct Claim {\\n        uint id;\\n        Patient patient;\\n        HealthProvider provider;\\n        ClaimStatus status;\\n        uint256 cost;\\n    }\\n\\n    enum ClaimStatus {\\n        Pending,\\n        Approved,\\n        Rejected,\\n        Settled\\n    }\\n\\n    mapping(address => Patient) private patients;\\n    mapping(address => HealthProvider) private providers;\\n    mapping(uint => Claim) public claims;\\n    mapping(address => Insurer) public insurers;\\n\\n    event ClaimCreated(uint claimId, uint256 cost);\\n    event ClaimStatusUpdated(uint claimId, ClaimStatus status);\\n    event ClaimSettled(uint claimId);\\n\\n    constructor() {\\n        claimEnumerator = 0;\\n    }\\n\\nfunction submitClaim(string memory fullname, string memory email, address payable walletAddress, uint256 cost) public {\\n    require(stringNotEmpty(providers[msg.sender].email), \\\"Health provider email must not be empty\\\");\\n\\n    Patient memory patient;\\n    if (patients[walletAddress].wallet == address(0)) {\\n        patient = Patient({\\n            fullname: fullname,\\n            email: email,\\n            wallet: walletAddress\\n        });\\n\\n        patients[patient.wallet] = patient;\\n    } else {\\n        patient = patients[walletAddress];\\n    }\\n\\n    HealthProvider storage provider = providers[msg.sender];\\n\\n    claimEnumerator++;\\n\\n    Claim storage claim = claims[claimEnumerator];\\n    claim.id = claimEnumerator;\\n    claim.patient = patient;\\n    claim.provider = provider;\\n    claim.status = ClaimStatus.Pending;\\n    claim.cost = cost;\\n\\n    emit ClaimCreated(claim.id, claim.cost);\\n}\\n\\n    function approveClaim(uint claimId) public {\\n        require(stringNotEmpty(insurers[msg.sender].name), \\\"Caller must be a registered insurer\\\");\\n\\n        updateClaimStatus(claimId, ClaimStatus.Approved);\\n        emit ClaimStatusUpdated(claimId, ClaimStatus.Approved);\\n    }\\n\\n    function rejectClaim(uint claimId) public {\\n        require(stringNotEmpty(insurers[msg.sender].name), \\\"Caller must be a registered insurer\\\");\\n\\n        updateClaimStatus(claimId, ClaimStatus.Rejected);\\n        emit ClaimStatusUpdated(claimId, ClaimStatus.Rejected);\\n    }\\n\\n    function settleClaim(uint claimId) public payable returns (bool) {\\n        require(stringNotEmpty(insurers[msg.sender].name), \\\"Caller must be a registered insurer\\\");\\n    \\n        Claim storage claim = claims[claimId];\\n        require(claim.status == ClaimStatus.Approved, \\\"Only approved claims can be settled\\\");\\n\\n        require(msg.sender.balance >= claim.cost, \\\"Not enough funds to settle claim\\\");\\n    \\n        claim.patient.wallet.transfer(claim.cost);\\n    \\n        updateClaimStatus(claimId, ClaimStatus.Settled);\\n        emit ClaimSettled(claimId);\\n        emit ClaimStatusUpdated(claimId, ClaimStatus.Settled);\\n    \\n        return true;\\n    }\\n\\n    function getClaim(uint claimId) public view returns (Claim memory) {\\n        return claims[claimId];\\n    }\\n\\n    function createInsurer(string memory name, address insurerAddress) public returns (Insurer memory) {\\n        require(stringNotEmpty(name), \\\"Insurer name must not be empty\\\");\\n    \\n        if (stringNotEmpty(insurers[insurerAddress].name)) {\\n            return insurers[insurerAddress];\\n        }\\n    \\n        Insurer storage insurer = insurers[insurerAddress];\\n        insurer.wallet = insurerAddress;\\n        insurer.name = name;\\n    \\n        return insurer;\\n    }\\n\\n    function createProvider(string memory name, string memory email, address providerAddress) public returns (HealthProvider memory) {\\n        if (stringNotEmpty(providers[providerAddress].email)) {\\n            return providers[providerAddress];\\n        }\\n    \\n        HealthProvider storage provider = providers[providerAddress];\\n        provider.wallet = providerAddress;\\n        provider.name = name;\\n        provider.email = email;\\n    \\n        return provider;\\n    }\\n\\n    function stringsEqual(string memory a, string memory b) internal pure returns (bool) {\\n        return keccak256(abi.encodePacked(a)) == keccak256(abi.encodePacked(b));\\n    }\\n\\n    function stringNotEmpty(string memory a) internal pure returns (bool) {\\n        return !stringsEqual(a, '');\\n    }\\n\\n    function updateClaimStatus(uint claimId, ClaimStatus status) private {\\n        if(stringNotEmpty(claims[claimId].patient.email)){\\n            claims[claimId].status = status;\\n        }\\n    }\\n}\",\"keccak256\":\"0xb5238463f65b2d16ff73e37945b0fca113ec7dd70183abe7107faa87a2e51291\",\"license\":\"SEE LICENSE IN LICENSE\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060008055611df2806100246000396000f3fe6080604052600436106100865760003560e01c8063c98bd46411610059578063c98bd46414610134578063de45aeef14610161578063e406f1d81461018f578063e5fc833c146101b2578063ff18666b146101d257600080fd5b8063203411011461008b57806346e30135146100ad5780635aef2447146100cd578063a888c2cd14610103575b600080fd5b34801561009757600080fd5b506100ab6100a6366004611683565b6101ff565b005b3480156100b957600080fd5b506100ab6100c8366004611683565b610311565b3480156100d957600080fd5b506100ed6100e8366004611683565b61038c565b6040516100fa91906117ba565b60405180910390f35b34801561010f57600080fd5b5061012361011e366004611683565b610695565b6040516100fa959493929190611827565b34801561014057600080fd5b5061015461014f36600461192d565b610947565b6040516100fa919061197f565b34801561016d57600080fd5b5061018161017c3660046119b4565b610b9d565b6040516100fa9291906119d1565b6101a261019d366004611683565b610c4c565b60405190151581526020016100fa565b3480156101be57600080fd5b506100ab6101cd3660046119f5565b610e23565b3480156101de57600080fd5b506101f26101ed366004611a73565b6111e2565b6040516100fa9190611aeb565b33600090815260046020526040902060010180546102a4919061022190611afe565b80601f016020809104026020016040519081016040528092919081815260200182805461024d90611afe565b801561029a5780601f1061026f5761010080835404028352916020019161029a565b820191906000526020600020905b81548152906001019060200180831161027d57829003601f168201915b5050505050611532565b6102c95760405162461bcd60e51b81526004016102c090611b38565b60405180910390fd5b6102d4816002611554565b7f2e7de2377c1e6f85a268dbe00519c60d65c9e38570a118be0eb07feb07fc89be816002604051610306929190611b7b565b60405180910390a150565b3360009081526004602052604090206001018054610333919061022190611afe565b61034f5760405162461bcd60e51b81526004016102c090611b38565b61035a816001611554565b7f2e7de2377c1e6f85a268dbe00519c60d65c9e38570a118be0eb07feb07fc89be816001604051610306929190611b7b565b610394611610565b600360008381526020019081526020016000206040518060a001604052908160008201548152602001600182016040518060600160405290816000820180546103dc90611afe565b80601f016020809104026020016040519081016040528092919081815260200182805461040890611afe565b80156104555780601f1061042a57610100808354040283529160200191610455565b820191906000526020600020905b81548152906001019060200180831161043857829003601f168201915b5050505050815260200160018201805461046e90611afe565b80601f016020809104026020016040519081016040528092919081815260200182805461049a90611afe565b80156104e75780601f106104bc576101008083540402835291602001916104e7565b820191906000526020600020905b8154815290600101906020018083116104ca57829003601f168201915b5050509183525050600291909101546001600160a01b03908116602092830152918352604080516060810190915260048501805490931681526005850180549483019491939284019161053990611afe565b80601f016020809104026020016040519081016040528092919081815260200182805461056590611afe565b80156105b25780601f10610587576101008083540402835291602001916105b2565b820191906000526020600020905b81548152906001019060200180831161059557829003601f168201915b505050505081526020016002820180546105cb90611afe565b80601f01602080910402602001604051908101604052809291908181526020018280546105f790611afe565b80156106445780601f1061061957610100808354040283529160200191610644565b820191906000526020600020905b81548152906001019060200180831161062757829003601f168201915b505050919092525050508152600782015460209091019060ff16600381111561066f5761066f611782565b600381111561068057610680611782565b81526020016008820154815250509050919050565b600360205260009081526040908190208054825160608101909352600182018054919391829082906106c690611afe565b80601f01602080910402602001604051908101604052809291908181526020018280546106f290611afe565b801561073f5780601f106107145761010080835404028352916020019161073f565b820191906000526020600020905b81548152906001019060200180831161072257829003601f168201915b5050505050815260200160018201805461075890611afe565b80601f016020809104026020016040519081016040528092919081815260200182805461078490611afe565b80156107d15780601f106107a6576101008083540402835291602001916107d1565b820191906000526020600020905b8154815290600101906020018083116107b457829003601f168201915b5050509183525050600291909101546001600160a01b0390811660209283015260408051606081019091526004850180549092168152600585018054949594919384019161081e90611afe565b80601f016020809104026020016040519081016040528092919081815260200182805461084a90611afe565b80156108975780601f1061086c57610100808354040283529160200191610897565b820191906000526020600020905b81548152906001019060200180831161087a57829003601f168201915b505050505081526020016002820180546108b090611afe565b80601f01602080910402602001604051908101604052809291908181526020018280546108dc90611afe565b80156109295780601f106108fe57610100808354040283529160200191610929565b820191906000526020600020905b81548152906001019060200180831161090c57829003601f168201915b505050919092525050506007820154600890920154909160ff169085565b60408051808201909152600081526060602082015261096583611532565b6109b15760405162461bcd60e51b815260206004820152601e60248201527f496e7375726572206e616d65206d757374206e6f7420626520656d707479000060448201526064016102c0565b6001600160a01b038216600090815260046020526040902060010180546109dc919061022190611afe565b15610aac576001600160a01b0380831660009081526004602090815260409182902082518084019093528054909316825260018301805492939291840191610a2390611afe565b80601f0160208091040260200160405190810160405280929190818152602001828054610a4f90611afe565b8015610a9c5780601f10610a7157610100808354040283529160200191610a9c565b820191906000526020600020905b815481529060010190602001808311610a7f57829003601f168201915b5050505050815250509050610b97565b6001600160a01b038216600081815260046020526040902080546001600160a01b031916909117815560018101610ae38582611bde565b506040805180820190915281546001600160a01b0316815260018201805483916020840191610b1190611afe565b80601f0160208091040260200160405190810160405280929190818152602001828054610b3d90611afe565b8015610b8a5780601f10610b5f57610100808354040283529160200191610b8a565b820191906000526020600020905b815481529060010190602001808311610b6d57829003601f168201915b5050505050815250509150505b92915050565b600460205260009081526040902080546001820180546001600160a01b039092169291610bc990611afe565b80601f0160208091040260200160405190810160405280929190818152602001828054610bf590611afe565b8015610c425780601f10610c1757610100808354040283529160200191610c42565b820191906000526020600020905b815481529060010190602001808311610c2557829003601f168201915b5050505050905082565b3360009081526004602052604081206001018054610c6e919061022190611afe565b610c8a5760405162461bcd60e51b81526004016102c090611b38565b60008281526003602052604090206001600782015460ff166003811115610cb357610cb3611782565b14610d0c5760405162461bcd60e51b815260206004820152602360248201527f4f6e6c7920617070726f76656420636c61696d732063616e20626520736574746044820152621b195960ea1b60648201526084016102c0565b600881015433311015610d615760405162461bcd60e51b815260206004820181905260248201527f4e6f7420656e6f7567682066756e647320746f20736574746c6520636c61696d60448201526064016102c0565b600381015460088201546040516001600160a01b039092169181156108fc0291906000818181858888f19350505050158015610da1573d6000803e3d6000fd5b50610dad836003611554565b6040518381527f08b0d454f7f4ff4f1fd54b22b45c916ac65631587fc0a6f59e8fa5a54c7c80b19060200160405180910390a17f2e7de2377c1e6f85a268dbe00519c60d65c9e38570a118be0eb07feb07fc89be836003604051610e12929190611b7b565b60405180910390a150600192915050565b336000908152600260208190526040909120018054610e46919061022190611afe565b610ea25760405162461bcd60e51b815260206004820152602760248201527f4865616c74682070726f766964657220656d61696c206d757374206e6f7420626044820152666520656d70747960c81b60648201526084016102c0565b604080516060808201835280825260208201526000918101919091526001600160a01b0383811660009081526001602052604090206002015416610f6957506040805160608101825285815260208082018690526001600160a01b038516828401819052600090815260019091529190912081518291908190610f259082611bde565b5060208201516001820190610f3a9082611bde565b5060409190910151600290910180546001600160a01b0319166001600160a01b039092169190911790556110c7565b6001600160a01b03831660009081526001602052604090819020815160608101909252805482908290610f9b90611afe565b80601f0160208091040260200160405190810160405280929190818152602001828054610fc790611afe565b80156110145780601f10610fe957610100808354040283529160200191611014565b820191906000526020600020905b815481529060010190602001808311610ff757829003601f168201915b5050505050815260200160018201805461102d90611afe565b80601f016020809104026020016040519081016040528092919081815260200182805461105990611afe565b80156110a65780601f1061107b576101008083540402835291602001916110a6565b820191906000526020600020905b81548152906001019060200180831161108957829003601f168201915b5050509183525050600291909101546001600160a01b031660209091015290505b33600090815260026020526040812081549091806110e483611c9e565b9091555050600080548082526003602052604090912090815582518390600183019081906111129082611bde565b50602082015160018201906111279082611bde565b5060409190910151600290910180546001600160a01b03199081166001600160a01b039384161790915583546004840180549190931691161781558290600583016111756001840182611cc5565b5060028181019061118890840182611cc5565b50505060078101805460ff1916905560088101849055805460408051918252602082018690527f96e3875898071e5d91932eb150a3914f9fe70e473f6faeaad697e99a48937c9c910160405180910390a150505050505050565b61120f604051806060016040528060006001600160a01b0316815260200160608152602001606081525090565b6001600160a01b038216600090815260026020819052604090912001805461123b919061022190611afe565b1561139e576001600160a01b03808316600090815260026020908152604091829020825160608101909352805490931682526001830180549293929184019161128390611afe565b80601f01602080910402602001604051908101604052809291908181526020018280546112af90611afe565b80156112fc5780601f106112d1576101008083540402835291602001916112fc565b820191906000526020600020905b8154815290600101906020018083116112df57829003601f168201915b5050505050815260200160028201805461131590611afe565b80601f016020809104026020016040519081016040528092919081815260200182805461134190611afe565b801561138e5780601f106113635761010080835404028352916020019161138e565b820191906000526020600020905b81548152906001019060200180831161137157829003601f168201915b505050505081525050905061152b565b6001600160a01b038216600081815260026020526040902080546001600160a01b0319169091178155600181016113d58682611bde565b50600281016113e48582611bde565b50604080516060810190915281546001600160a01b031681526001820180548391602084019161141390611afe565b80601f016020809104026020016040519081016040528092919081815260200182805461143f90611afe565b801561148c5780601f106114615761010080835404028352916020019161148c565b820191906000526020600020905b81548152906001019060200180831161146f57829003601f168201915b505050505081526020016002820180546114a590611afe565b80601f01602080910402602001604051908101604052809291908181526020018280546114d190611afe565b801561151e5780601f106114f35761010080835404028352916020019161151e565b820191906000526020600020905b81548152906001019060200180831161150157829003601f168201915b5050505050815250509150505b9392505050565b600061154d82604051806020016040528060008152506115b7565b1592915050565b60008281526003602052604090206002018054611575919061022190611afe565b156115b35760008281526003602081905260409091206007018054839260ff199091169060019084908111156115ad576115ad611782565b02179055505b5050565b6000816040516020016115ca9190611da0565b60405160208183030381529060405280519060200120836040516020016115f19190611da0565b6040516020818303038152906040528051906020012014905092915050565b6040518060a001604052806000815260200161164f6040518060600160405280606081526020016060815260200160006001600160a01b031681525090565b8152604080516060808201835260008252602082810182905292820152910190815260200160008152602001600081525090565b60006020828403121561169557600080fd5b5035919050565b60005b838110156116b757818101518382015260200161169f565b50506000910152565b600081518084526116d881602086016020860161169c565b601f01601f19169290920160200192915050565b600081516060845261170160608501826116c0565b90506020830151848203602086015261171a82826116c0565b6040948501516001600160a01b03169590940194909452509092915050565b60018060a01b038151168252600060208201516060602085015261176060608501826116c0565b90506040830151848203604086015261177982826116c0565b95945050505050565b634e487b7160e01b600052602160045260246000fd5b600481106117b657634e487b7160e01b600052602160045260246000fd5b9052565b60208152815160208201526000602083015160a060408401526117e060c08401826116ec565b90506040840151601f198483030160608501526117fd8282611739565b91505060608401516118126080850182611798565b50608084015160a08401528091505092915050565b85815260a06020820152600061184060a08301876116ec565b82810360408401526118528187611739565b9150506118626060830185611798565b8260808301529695505050505050565b634e487b7160e01b600052604160045260246000fd5b600082601f83011261189957600080fd5b813567ffffffffffffffff808211156118b4576118b4611872565b604051601f8301601f19908116603f011681019082821181831017156118dc576118dc611872565b816040528381528660208588010111156118f557600080fd5b836020870160208301376000602085830101528094505050505092915050565b6001600160a01b038116811461192a57600080fd5b50565b6000806040838503121561194057600080fd5b823567ffffffffffffffff81111561195757600080fd5b61196385828601611888565b925050602083013561197481611915565b809150509250929050565b602080825282516001600160a01b0316828201528201516040808301526000906119ac60608401826116c0565b949350505050565b6000602082840312156119c657600080fd5b813561152b81611915565b6001600160a01b03831681526040602082018190526000906119ac908301846116c0565b60008060008060808587031215611a0b57600080fd5b843567ffffffffffffffff80821115611a2357600080fd5b611a2f88838901611888565b95506020870135915080821115611a4557600080fd5b50611a5287828801611888565b9350506040850135611a6381611915565b9396929550929360600135925050565b600080600060608486031215611a8857600080fd5b833567ffffffffffffffff80821115611aa057600080fd5b611aac87838801611888565b94506020860135915080821115611ac257600080fd5b50611acf86828701611888565b9250506040840135611ae081611915565b809150509250925092565b60208152600061152b6020830184611739565b600181811c90821680611b1257607f821691505b602082108103611b3257634e487b7160e01b600052602260045260246000fd5b50919050565b60208082526023908201527f43616c6c6572206d7573742062652061207265676973746572656420696e73756040820152623932b960e91b606082015260800190565b8281526040810161152b6020830184611798565b601f821115611bd957600081815260208120601f850160051c81016020861015611bb65750805b601f850160051c820191505b81811015611bd557828155600101611bc2565b5050505b505050565b815167ffffffffffffffff811115611bf857611bf8611872565b611c0c81611c068454611afe565b84611b8f565b602080601f831160018114611c415760008415611c295750858301515b600019600386901b1c1916600185901b178555611bd5565b600085815260208120601f198616915b82811015611c7057888601518255948401946001909101908401611c51565b5085821015611c8e5787850151600019600388901b60f8161c191681555b5050505050600190811b01905550565b600060018201611cbe57634e487b7160e01b600052601160045260246000fd5b5060010190565b818103611cd0575050565b611cda8254611afe565b67ffffffffffffffff811115611cf257611cf2611872565b611d0081611c068454611afe565b6000601f821160018114611d345760008315611d1c5750848201545b600019600385901b1c1916600184901b178455611d99565b600085815260209020601f19841690600086815260209020845b83811015611d6e5782860154825560019586019590910190602001611d4e565b5085831015611d8c5781850154600019600388901b60f8161c191681555b50505060018360011b0184555b5050505050565b60008251611db281846020870161169c565b919091019291505056fea2646970667358221220357b02785256eb94d978ec2bd27df7e49f667055f74cf027d18cc9a29287a58e64736f6c63430008110033",
+  "deployedBytecode": "0x6080604052600436106100865760003560e01c8063c98bd46411610059578063c98bd46414610134578063de45aeef14610161578063e406f1d81461018f578063e5fc833c146101b2578063ff18666b146101d257600080fd5b8063203411011461008b57806346e30135146100ad5780635aef2447146100cd578063a888c2cd14610103575b600080fd5b34801561009757600080fd5b506100ab6100a6366004611683565b6101ff565b005b3480156100b957600080fd5b506100ab6100c8366004611683565b610311565b3480156100d957600080fd5b506100ed6100e8366004611683565b61038c565b6040516100fa91906117ba565b60405180910390f35b34801561010f57600080fd5b5061012361011e366004611683565b610695565b6040516100fa959493929190611827565b34801561014057600080fd5b5061015461014f36600461192d565b610947565b6040516100fa919061197f565b34801561016d57600080fd5b5061018161017c3660046119b4565b610b9d565b6040516100fa9291906119d1565b6101a261019d366004611683565b610c4c565b60405190151581526020016100fa565b3480156101be57600080fd5b506100ab6101cd3660046119f5565b610e23565b3480156101de57600080fd5b506101f26101ed366004611a73565b6111e2565b6040516100fa9190611aeb565b33600090815260046020526040902060010180546102a4919061022190611afe565b80601f016020809104026020016040519081016040528092919081815260200182805461024d90611afe565b801561029a5780601f1061026f5761010080835404028352916020019161029a565b820191906000526020600020905b81548152906001019060200180831161027d57829003601f168201915b5050505050611532565b6102c95760405162461bcd60e51b81526004016102c090611b38565b60405180910390fd5b6102d4816002611554565b7f2e7de2377c1e6f85a268dbe00519c60d65c9e38570a118be0eb07feb07fc89be816002604051610306929190611b7b565b60405180910390a150565b3360009081526004602052604090206001018054610333919061022190611afe565b61034f5760405162461bcd60e51b81526004016102c090611b38565b61035a816001611554565b7f2e7de2377c1e6f85a268dbe00519c60d65c9e38570a118be0eb07feb07fc89be816001604051610306929190611b7b565b610394611610565b600360008381526020019081526020016000206040518060a001604052908160008201548152602001600182016040518060600160405290816000820180546103dc90611afe565b80601f016020809104026020016040519081016040528092919081815260200182805461040890611afe565b80156104555780601f1061042a57610100808354040283529160200191610455565b820191906000526020600020905b81548152906001019060200180831161043857829003601f168201915b5050505050815260200160018201805461046e90611afe565b80601f016020809104026020016040519081016040528092919081815260200182805461049a90611afe565b80156104e75780601f106104bc576101008083540402835291602001916104e7565b820191906000526020600020905b8154815290600101906020018083116104ca57829003601f168201915b5050509183525050600291909101546001600160a01b03908116602092830152918352604080516060810190915260048501805490931681526005850180549483019491939284019161053990611afe565b80601f016020809104026020016040519081016040528092919081815260200182805461056590611afe565b80156105b25780601f10610587576101008083540402835291602001916105b2565b820191906000526020600020905b81548152906001019060200180831161059557829003601f168201915b505050505081526020016002820180546105cb90611afe565b80601f01602080910402602001604051908101604052809291908181526020018280546105f790611afe565b80156106445780601f1061061957610100808354040283529160200191610644565b820191906000526020600020905b81548152906001019060200180831161062757829003601f168201915b505050919092525050508152600782015460209091019060ff16600381111561066f5761066f611782565b600381111561068057610680611782565b81526020016008820154815250509050919050565b600360205260009081526040908190208054825160608101909352600182018054919391829082906106c690611afe565b80601f01602080910402602001604051908101604052809291908181526020018280546106f290611afe565b801561073f5780601f106107145761010080835404028352916020019161073f565b820191906000526020600020905b81548152906001019060200180831161072257829003601f168201915b5050505050815260200160018201805461075890611afe565b80601f016020809104026020016040519081016040528092919081815260200182805461078490611afe565b80156107d15780601f106107a6576101008083540402835291602001916107d1565b820191906000526020600020905b8154815290600101906020018083116107b457829003601f168201915b5050509183525050600291909101546001600160a01b0390811660209283015260408051606081019091526004850180549092168152600585018054949594919384019161081e90611afe565b80601f016020809104026020016040519081016040528092919081815260200182805461084a90611afe565b80156108975780601f1061086c57610100808354040283529160200191610897565b820191906000526020600020905b81548152906001019060200180831161087a57829003601f168201915b505050505081526020016002820180546108b090611afe565b80601f01602080910402602001604051908101604052809291908181526020018280546108dc90611afe565b80156109295780601f106108fe57610100808354040283529160200191610929565b820191906000526020600020905b81548152906001019060200180831161090c57829003601f168201915b505050919092525050506007820154600890920154909160ff169085565b60408051808201909152600081526060602082015261096583611532565b6109b15760405162461bcd60e51b815260206004820152601e60248201527f496e7375726572206e616d65206d757374206e6f7420626520656d707479000060448201526064016102c0565b6001600160a01b038216600090815260046020526040902060010180546109dc919061022190611afe565b15610aac576001600160a01b0380831660009081526004602090815260409182902082518084019093528054909316825260018301805492939291840191610a2390611afe565b80601f0160208091040260200160405190810160405280929190818152602001828054610a4f90611afe565b8015610a9c5780601f10610a7157610100808354040283529160200191610a9c565b820191906000526020600020905b815481529060010190602001808311610a7f57829003601f168201915b5050505050815250509050610b97565b6001600160a01b038216600081815260046020526040902080546001600160a01b031916909117815560018101610ae38582611bde565b506040805180820190915281546001600160a01b0316815260018201805483916020840191610b1190611afe565b80601f0160208091040260200160405190810160405280929190818152602001828054610b3d90611afe565b8015610b8a5780601f10610b5f57610100808354040283529160200191610b8a565b820191906000526020600020905b815481529060010190602001808311610b6d57829003601f168201915b5050505050815250509150505b92915050565b600460205260009081526040902080546001820180546001600160a01b039092169291610bc990611afe565b80601f0160208091040260200160405190810160405280929190818152602001828054610bf590611afe565b8015610c425780601f10610c1757610100808354040283529160200191610c42565b820191906000526020600020905b815481529060010190602001808311610c2557829003601f168201915b5050505050905082565b3360009081526004602052604081206001018054610c6e919061022190611afe565b610c8a5760405162461bcd60e51b81526004016102c090611b38565b60008281526003602052604090206001600782015460ff166003811115610cb357610cb3611782565b14610d0c5760405162461bcd60e51b815260206004820152602360248201527f4f6e6c7920617070726f76656420636c61696d732063616e20626520736574746044820152621b195960ea1b60648201526084016102c0565b600881015433311015610d615760405162461bcd60e51b815260206004820181905260248201527f4e6f7420656e6f7567682066756e647320746f20736574746c6520636c61696d60448201526064016102c0565b600381015460088201546040516001600160a01b039092169181156108fc0291906000818181858888f19350505050158015610da1573d6000803e3d6000fd5b50610dad836003611554565b6040518381527f08b0d454f7f4ff4f1fd54b22b45c916ac65631587fc0a6f59e8fa5a54c7c80b19060200160405180910390a17f2e7de2377c1e6f85a268dbe00519c60d65c9e38570a118be0eb07feb07fc89be836003604051610e12929190611b7b565b60405180910390a150600192915050565b336000908152600260208190526040909120018054610e46919061022190611afe565b610ea25760405162461bcd60e51b815260206004820152602760248201527f4865616c74682070726f766964657220656d61696c206d757374206e6f7420626044820152666520656d70747960c81b60648201526084016102c0565b604080516060808201835280825260208201526000918101919091526001600160a01b0383811660009081526001602052604090206002015416610f6957506040805160608101825285815260208082018690526001600160a01b038516828401819052600090815260019091529190912081518291908190610f259082611bde565b5060208201516001820190610f3a9082611bde565b5060409190910151600290910180546001600160a01b0319166001600160a01b039092169190911790556110c7565b6001600160a01b03831660009081526001602052604090819020815160608101909252805482908290610f9b90611afe565b80601f0160208091040260200160405190810160405280929190818152602001828054610fc790611afe565b80156110145780601f10610fe957610100808354040283529160200191611014565b820191906000526020600020905b815481529060010190602001808311610ff757829003601f168201915b5050505050815260200160018201805461102d90611afe565b80601f016020809104026020016040519081016040528092919081815260200182805461105990611afe565b80156110a65780601f1061107b576101008083540402835291602001916110a6565b820191906000526020600020905b81548152906001019060200180831161108957829003601f168201915b5050509183525050600291909101546001600160a01b031660209091015290505b33600090815260026020526040812081549091806110e483611c9e565b9091555050600080548082526003602052604090912090815582518390600183019081906111129082611bde565b50602082015160018201906111279082611bde565b5060409190910151600290910180546001600160a01b03199081166001600160a01b039384161790915583546004840180549190931691161781558290600583016111756001840182611cc5565b5060028181019061118890840182611cc5565b50505060078101805460ff1916905560088101849055805460408051918252602082018690527f96e3875898071e5d91932eb150a3914f9fe70e473f6faeaad697e99a48937c9c910160405180910390a150505050505050565b61120f604051806060016040528060006001600160a01b0316815260200160608152602001606081525090565b6001600160a01b038216600090815260026020819052604090912001805461123b919061022190611afe565b1561139e576001600160a01b03808316600090815260026020908152604091829020825160608101909352805490931682526001830180549293929184019161128390611afe565b80601f01602080910402602001604051908101604052809291908181526020018280546112af90611afe565b80156112fc5780601f106112d1576101008083540402835291602001916112fc565b820191906000526020600020905b8154815290600101906020018083116112df57829003601f168201915b5050505050815260200160028201805461131590611afe565b80601f016020809104026020016040519081016040528092919081815260200182805461134190611afe565b801561138e5780601f106113635761010080835404028352916020019161138e565b820191906000526020600020905b81548152906001019060200180831161137157829003601f168201915b505050505081525050905061152b565b6001600160a01b038216600081815260026020526040902080546001600160a01b0319169091178155600181016113d58682611bde565b50600281016113e48582611bde565b50604080516060810190915281546001600160a01b031681526001820180548391602084019161141390611afe565b80601f016020809104026020016040519081016040528092919081815260200182805461143f90611afe565b801561148c5780601f106114615761010080835404028352916020019161148c565b820191906000526020600020905b81548152906001019060200180831161146f57829003601f168201915b505050505081526020016002820180546114a590611afe565b80601f01602080910402602001604051908101604052809291908181526020018280546114d190611afe565b801561151e5780601f106114f35761010080835404028352916020019161151e565b820191906000526020600020905b81548152906001019060200180831161150157829003601f168201915b5050505050815250509150505b9392505050565b600061154d82604051806020016040528060008152506115b7565b1592915050565b60008281526003602052604090206002018054611575919061022190611afe565b156115b35760008281526003602081905260409091206007018054839260ff199091169060019084908111156115ad576115ad611782565b02179055505b5050565b6000816040516020016115ca9190611da0565b60405160208183030381529060405280519060200120836040516020016115f19190611da0565b6040516020818303038152906040528051906020012014905092915050565b6040518060a001604052806000815260200161164f6040518060600160405280606081526020016060815260200160006001600160a01b031681525090565b8152604080516060808201835260008252602082810182905292820152910190815260200160008152602001600081525090565b60006020828403121561169557600080fd5b5035919050565b60005b838110156116b757818101518382015260200161169f565b50506000910152565b600081518084526116d881602086016020860161169c565b601f01601f19169290920160200192915050565b600081516060845261170160608501826116c0565b90506020830151848203602086015261171a82826116c0565b6040948501516001600160a01b03169590940194909452509092915050565b60018060a01b038151168252600060208201516060602085015261176060608501826116c0565b90506040830151848203604086015261177982826116c0565b95945050505050565b634e487b7160e01b600052602160045260246000fd5b600481106117b657634e487b7160e01b600052602160045260246000fd5b9052565b60208152815160208201526000602083015160a060408401526117e060c08401826116ec565b90506040840151601f198483030160608501526117fd8282611739565b91505060608401516118126080850182611798565b50608084015160a08401528091505092915050565b85815260a06020820152600061184060a08301876116ec565b82810360408401526118528187611739565b9150506118626060830185611798565b8260808301529695505050505050565b634e487b7160e01b600052604160045260246000fd5b600082601f83011261189957600080fd5b813567ffffffffffffffff808211156118b4576118b4611872565b604051601f8301601f19908116603f011681019082821181831017156118dc576118dc611872565b816040528381528660208588010111156118f557600080fd5b836020870160208301376000602085830101528094505050505092915050565b6001600160a01b038116811461192a57600080fd5b50565b6000806040838503121561194057600080fd5b823567ffffffffffffffff81111561195757600080fd5b61196385828601611888565b925050602083013561197481611915565b809150509250929050565b602080825282516001600160a01b0316828201528201516040808301526000906119ac60608401826116c0565b949350505050565b6000602082840312156119c657600080fd5b813561152b81611915565b6001600160a01b03831681526040602082018190526000906119ac908301846116c0565b60008060008060808587031215611a0b57600080fd5b843567ffffffffffffffff80821115611a2357600080fd5b611a2f88838901611888565b95506020870135915080821115611a4557600080fd5b50611a5287828801611888565b9350506040850135611a6381611915565b9396929550929360600135925050565b600080600060608486031215611a8857600080fd5b833567ffffffffffffffff80821115611aa057600080fd5b611aac87838801611888565b94506020860135915080821115611ac257600080fd5b50611acf86828701611888565b9250506040840135611ae081611915565b809150509250925092565b60208152600061152b6020830184611739565b600181811c90821680611b1257607f821691505b602082108103611b3257634e487b7160e01b600052602260045260246000fd5b50919050565b60208082526023908201527f43616c6c6572206d7573742062652061207265676973746572656420696e73756040820152623932b960e91b606082015260800190565b8281526040810161152b6020830184611798565b601f821115611bd957600081815260208120601f850160051c81016020861015611bb65750805b601f850160051c820191505b81811015611bd557828155600101611bc2565b5050505b505050565b815167ffffffffffffffff811115611bf857611bf8611872565b611c0c81611c068454611afe565b84611b8f565b602080601f831160018114611c415760008415611c295750858301515b600019600386901b1c1916600185901b178555611bd5565b600085815260208120601f198616915b82811015611c7057888601518255948401946001909101908401611c51565b5085821015611c8e5787850151600019600388901b60f8161c191681555b5050505050600190811b01905550565b600060018201611cbe57634e487b7160e01b600052601160045260246000fd5b5060010190565b818103611cd0575050565b611cda8254611afe565b67ffffffffffffffff811115611cf257611cf2611872565b611d0081611c068454611afe565b6000601f821160018114611d345760008315611d1c5750848201545b600019600385901b1c1916600184901b178455611d99565b600085815260209020601f19841690600086815260209020845b83811015611d6e5782860154825560019586019590910190602001611d4e565b5085831015611d8c5781850154600019600388901b60f8161c191681555b50505060018360011b0184555b5050505050565b60008251611db281846020870161169c565b919091019291505056fea2646970667358221220357b02785256eb94d978ec2bd27df7e49f667055f74cf027d18cc9a29287a58e64736f6c63430008110033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 3,
+        "contract": "contracts/Carina.sol:Carina",
+        "label": "claimEnumerator",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 46,
+        "contract": "contracts/Carina.sol:Carina",
+        "label": "patients",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_address,t_struct(Patient)10_storage)"
+      },
+      {
+        "astId": 51,
+        "contract": "contracts/Carina.sol:Carina",
+        "label": "providers",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_address,t_struct(HealthProvider)22_storage)"
+      },
+      {
+        "astId": 56,
+        "contract": "contracts/Carina.sol:Carina",
+        "label": "claims",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_mapping(t_uint256,t_struct(Claim)36_storage)"
+      },
+      {
+        "astId": 61,
+        "contract": "contracts/Carina.sol:Carina",
+        "label": "insurers",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_mapping(t_address,t_struct(Insurer)15_storage)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_address_payable": {
+        "encoding": "inplace",
+        "label": "address payable",
+        "numberOfBytes": "20"
+      },
+      "t_enum(ClaimStatus)41": {
+        "encoding": "inplace",
+        "label": "enum Carina.ClaimStatus",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_struct(HealthProvider)22_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct Carina.HealthProvider)",
+        "numberOfBytes": "32",
+        "value": "t_struct(HealthProvider)22_storage"
+      },
+      "t_mapping(t_address,t_struct(Insurer)15_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct Carina.Insurer)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Insurer)15_storage"
+      },
+      "t_mapping(t_address,t_struct(Patient)10_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct Carina.Patient)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Patient)10_storage"
+      },
+      "t_mapping(t_uint256,t_struct(Claim)36_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct Carina.Claim)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Claim)36_storage"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(Claim)36_storage": {
+        "encoding": "inplace",
+        "label": "struct Carina.Claim",
+        "members": [
+          {
+            "astId": 24,
+            "contract": "contracts/Carina.sol:Carina",
+            "label": "id",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 27,
+            "contract": "contracts/Carina.sol:Carina",
+            "label": "patient",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_struct(Patient)10_storage"
+          },
+          {
+            "astId": 30,
+            "contract": "contracts/Carina.sol:Carina",
+            "label": "provider",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_struct(HealthProvider)22_storage"
+          },
+          {
+            "astId": 33,
+            "contract": "contracts/Carina.sol:Carina",
+            "label": "status",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_enum(ClaimStatus)41"
+          },
+          {
+            "astId": 35,
+            "contract": "contracts/Carina.sol:Carina",
+            "label": "cost",
+            "offset": 0,
+            "slot": "8",
+            "type": "t_uint256"
+          }
+        ],
+        "numberOfBytes": "288"
+      },
+      "t_struct(HealthProvider)22_storage": {
+        "encoding": "inplace",
+        "label": "struct Carina.HealthProvider",
+        "members": [
+          {
+            "astId": 17,
+            "contract": "contracts/Carina.sol:Carina",
+            "label": "wallet",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 19,
+            "contract": "contracts/Carina.sol:Carina",
+            "label": "name",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 21,
+            "contract": "contracts/Carina.sol:Carina",
+            "label": "email",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_string_storage"
+          }
+        ],
+        "numberOfBytes": "96"
+      },
+      "t_struct(Insurer)15_storage": {
+        "encoding": "inplace",
+        "label": "struct Carina.Insurer",
+        "members": [
+          {
+            "astId": 12,
+            "contract": "contracts/Carina.sol:Carina",
+            "label": "wallet",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 14,
+            "contract": "contracts/Carina.sol:Carina",
+            "label": "name",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage"
+          }
+        ],
+        "numberOfBytes": "64"
+      },
+      "t_struct(Patient)10_storage": {
+        "encoding": "inplace",
+        "label": "struct Carina.Patient",
+        "members": [
+          {
+            "astId": 5,
+            "contract": "contracts/Carina.sol:Carina",
+            "label": "fullname",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 7,
+            "contract": "contracts/Carina.sol:Carina",
+            "label": "email",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 9,
+            "contract": "contracts/Carina.sol:Carina",
+            "label": "wallet",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_address_payable"
+          }
+        ],
+        "numberOfBytes": "96"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
